@@ -1,0 +1,25 @@
+<testsuites>
+	<testsuite name="AllTests" tests="21">
+		<testcase classname="AllTests" name="testFront"/>
+		<testcase classname="AllTests" name="testBack"/>
+		<testcase classname="AllTests" name="testSize"/>
+		<testcase classname="AllTests" name="testEmpty"/>
+		<testcase classname="AllTests" name="testPushBack"/>
+		<testcase classname="AllTests" name="testPopBack"/>
+		<testcase classname="AllTests" name="testListConstruct"/>
+		<testcase classname="AllTests" name="testResize"/>
+		<testcase classname="AllTests" name="testMultipleConstruct"/>
+		<testcase classname="AllTests" name="testFrontConst"/>
+		<testcase classname="AllTests" name="testBackConst"/>
+		<testcase classname="AllTests" name="testDefaultConstruct"/>
+		<testcase classname="AllTests" name="testIterConstruct"/>
+		<testcase classname="AllTests" name="testListConstructChar"/>
+		<testcase classname="AllTests" name="testIstreamIterConstruct"/>
+		<testcase classname="AllTests" name="testReverseIter"/>
+		<testcase classname="AllTests" name="testReverseIterConst"/>
+		<testcase classname="AllTests" name="testIter"/>
+		<testcase classname="AllTests" name="testConstIter"/>
+		<testcase classname="AllTests" name="testErase"/>
+		<testcase classname="AllTests" name="testMakeDynArray"/>
+	</testsuite>
+</testsuites>
