@@ -1,5 +1,5 @@
-C++ Testat-3
-============
+dynArray
+========
 
 A vector with backward indexing using negative indices.
 
