@@ -2,7 +2,7 @@
  * dynArray.h
  *
  *  Created on: Nov 27, 2014
- *      Author: flo
+ *      Author: Florian Merz
  */
 
 #ifndef DYNARRAY_H_

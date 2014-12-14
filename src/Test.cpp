@@ -1,3 +1,10 @@
+/*
+ * Test.cpp
+ *
+ *  Created on: Nov 27, 2014
+ *      Author: Florian Merz
+ */
+
 #include "dynArray.h"
 
 #include <vector>
