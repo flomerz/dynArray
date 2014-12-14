@@ -8,11 +8,16 @@
 #ifndef DYNARRAY_H_
 #define DYNARRAY_H_
 
+#include <initializer_list>
 #include <vector>
 
 template<typename T> class dynArray {
 	using array_type=std::vector<T>;
 	array_type array { };
+
+	typename array_type::size_type calculateArrayIndex(int dynArrayIndex) const {
+		return dynArrayIndex >= 0 ? dynArrayIndex : size() + dynArrayIndex;
+	}
 public:
 	using size_type = typename array_type::size_type;
 	using iterator = typename array_type::iterator;
@@ -24,8 +29,8 @@ public:
 	dynArray(std::initializer_list<T> list) :
 			array { list } {
 	}
-	dynArray(size_type n, T const &v) :
-			array(n, v) {
+	dynArray(size_type size, T const &value) :
+			array(size, value) {
 	}
 	template<typename ITER>
 	dynArray(ITER begin, ITER end) :
@@ -33,16 +38,10 @@ public:
 	}
 
 	T & at(int index) {
-		if (index >= 0)
-			return array.at(index);
-		else
-			return array.at(size() + index);
+		return array.at(calculateArrayIndex(index));
 	}
 	T const & at(int index) const {
-		if (index >= 0)
-			return array.at(index);
-		else
-			return array.at(size() + index);
+		return array.at(calculateArrayIndex(index));
 	}
 
 	T& operator[](int index) {
@@ -57,6 +56,10 @@ public:
 	}
 	bool empty() const {
 		return array.empty();
+	}
+
+	size_type capacity() const {
+		return array.capacity();
 	}
 
 	void push_back(T const & t) {
@@ -116,14 +119,11 @@ public:
 		return array.crend();
 	}
 
-	void resize(size_type newsize) {
-		array.resize(newsize);
+	void clear() {
+		array.clear();
 	}
 
 	iterator erase(iterator pos) {
-		return array.erase(pos);
-	}
-	const_iterator erase(const_iterator pos) {
 		return array.erase(pos);
 	}
 	iterator erase(iterator first, iterator last) {
@@ -131,6 +131,17 @@ public:
 	}
 	const_iterator erase(const_iterator first, const_iterator last) {
 		return array.erase(first, last);
+	}
+
+	void resize(size_type newsize) {
+		array.resize(newsize);
+	}
+	void resize(size_type count, T const & value) {
+		array.resize(count, value);
+	}
+
+	static dynArray<T> makedynArray(std::initializer_list<T> list) {
+		return dynArray<T> { list };
 	}
 };
 
